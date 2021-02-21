@@ -1,7 +1,8 @@
 import xml.etree.ElementTree as xml
+import json
 import clean_recipes_functions as crf
 
-# XML to List of Recipes and 
+# XML to List of Recipes
 def parseCookbook(cookBook, filename):
     # Start with the root element
     root = xml.parse(filename)
@@ -26,6 +27,39 @@ def parseCookbook(cookBook, filename):
         newRecipe.append(instructions)
 
         cookBook.append(newRecipe)
+
+    return cookBook
+
+# XML to Dict of Recipes
+def parseCookbookDictionary(cookBook=None, filename=None):
+    # Start with the root element
+    root = xml.parse(filename)
+
+    if (cookBook == None):
+        cookBook = {"Cookbook": []}
+
+    recipes = root.findall("recipe")
+    for r in recipes:
+        recipeName = r.get("description")
+        #print(recipeName)
+        newRecipe = {}
+        newRecipe["Name"] = recipeName
+        newRecipe["Ingredients"] = []
+        ingredients = r.findall("RecipeItem")
+        for i in ingredients:
+            ingredientName = i.get("ItemName").split(",")[0]
+            #print("    ", ingredientName)
+            newRecipe["Ingredients"].append({"Ingredient": ingredientName})
+
+        instructionsDiv = r.find("XML_MEMO1")
+        if (instructionsDiv != None):
+            instructions = instructionsDiv.text
+        else:
+            instructions = "Method:/n/nNone"
+        #print(instructions)
+        newRecipe["Instructions"] = instructions
+
+        cookBook["Cookbook"].append({"Recipe": newRecipe})
 
     return cookBook
     
@@ -66,11 +100,23 @@ def printCookbook(book):
         print(r[2])
 
 if __name__ == "__main__":
-    outFilenameXML = "./Cookbook.xml"
+    outFilenameXML  = "./Cookbook.xml"
+    outFilenameJSON = "./Cookbook.json"
+
+    cookDict = parseCookbookDictionary(filename="./ESHA+Recipes+(EXL+Files)/CommonRecipes.exl")
+    #cookDict = parseCookbookDictionary(cookDict, "./ESHA+Recipes+(EXL+Files)/ArmedForcesRecipes.exl")
+    
+    cookDict, duplicates = crf.removeDuplicates(cookDict)
+    
+    print(json.dumps(cookDict))
+    print(duplicates, "duplicates")
+    with open(outFilenameJSON, "w") as file_object:
+        json.dump(cookDict, file_object)
+    quit()
 
     # Import and parse cookbooks
-    cookBook = []
-    cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/CommonRecipes.exl")
+    #cookBook = []
+    #cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/CommonRecipes.exl")
     #cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/EthnicRecipes.exl")
     #cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/VegetarianRecipes.exl")
     #cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/ArmedForcesRecipes.exl")
