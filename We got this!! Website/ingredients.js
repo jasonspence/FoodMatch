@@ -1,5 +1,7 @@
 jsonPath = "../Database/Cookbook.json"
 
+console.log("THIS IS WORKING")
+
 //var mydata = JSON.parse(data)
 
 /*
