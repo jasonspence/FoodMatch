@@ -1,6 +1,12 @@
 @charset "utf-8";
 /* CSS Document */
 
+@font-face{
+    font-family: TraneFont;
+    src: url(Raleway-Font.ttf);
+    font-weight: 800;
+}
+
 /*filter styling*/
 
 .filter{
@@ -15,7 +21,7 @@
     padding:2.5% 10%;
     padding-left: 10%;
     padding-right: 10%;
-    font-weight: bolder;
+    font-family: TraneFont;
 }
 
 /*tags styling*/
@@ -25,8 +31,8 @@
 
     margin: 0;
     position: absolute;
-    top: 20%;
-    width: 80%;
+    top: 10%;
+    width: 55vh;
     height: 35%;
     left: 47%;
     transform: translate(-50%, 0%);
@@ -50,6 +56,7 @@
     top: 0;
     font-size: 2.5vh;
     margin-left: 35%;
+    font-family: TraneFont;
 }
 
 #tag2{
@@ -69,28 +76,9 @@
     position: absolute;
     text-align: center;
     top: 1vh;
-    font-size: 2vh;
+    font-size: 1.75vh;
     margin-left: 3vw;
-}
-
-#tag3{
-    float: left;
-    width: 25%;
-    margin-left: 50%;
-    left: 0;
-    position: absolute;
-}
-
-#tag3 img{
-    width: 100%;
-}
-
-#tag3 p{
-    position: absolute;
-    text-align: center;
-    font-size: 2.75vh;
-    top: 1vh;
-    margin-left: 25%;
+    font-family: TraneFont;
 }
 
 /*showcase styling*/
@@ -102,8 +90,8 @@
 
     margin: 0;
     position: absolute;
-    top: 30%;
-    width: 80%;
+    top: 20vh;
+    width: 55vh;
     height: 35%;
     left: 47%;
     transform: translate(-50%, 0%);
@@ -116,6 +104,7 @@
     margin-left: 3vw;
     margin-top: 4vh;
     margin-bottom: 3vh;
+    font-family: TraneFont;
 }
 
 .imgFrame{
@@ -149,8 +138,8 @@
 
     margin: 0;
     position: absolute;
-    top: 32%;
-    width: 80%;
+    top: 22%;
+    width: 55vh;
     height: 35%;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -163,9 +152,30 @@
 
     margin: 0;
     position: absolute;
-    top: 34%;
-    width: 80%;
+    top: 24%;
+    width: 55vh;
     height: 35%;
     left: 52%;
     transform: translate(-50%, 0%);
+}
+
+.arrows{
+    margin-top: 40vh;
+}
+
+.arrows::after{
+    content: "";
+    clear: both;
+    display: table;
+    margin-bottom: unset;
+}
+
+.arrowL{
+    width: 25vh;
+    float: left;
+}
+
+.arrowR{
+    width: 25vh;
+    float: right;
 }
