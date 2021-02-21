@@ -1,4 +1,4 @@
-jsonPath = "../Database/Cookbook.json"
+var jsonPath = "../Database/Cookbook.json"
 
 console.log("THIS IS WORKING")
 
@@ -26,7 +26,7 @@ readJSON(jsonPath)
 */
 
 
-fetch(jsonPath)
+const data = fetch(jsonPath)
 .then(response => {
    return response.json();
 })
