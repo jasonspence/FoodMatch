@@ -25,11 +25,16 @@ function readJSON(path) {
 readJSON(jsonPath)
 */
 
+const request = async (jsonPath) => {
+    const response = await fetch(jsonPath);
+    const data = await response.json();
+    console.log(data);
 
-const response = await fetch(jsonPath);
-const data = await response.json();
-console.log(data);
-
-for(const recipe in data.Cookbook) {
-    console.log(recipe.Name)
+    for(const recipe in data.Cookbook) {
+        console.log(recipe.Name)
+    }
 }
+
+request(jsonPath)
+
+
