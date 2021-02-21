@@ -104,12 +104,22 @@ if __name__ == "__main__":
     outFilenameJSON = "./Cookbook.json"
 
     cookDict = parseCookbookDictionary(filename="./ESHA+Recipes+(EXL+Files)/CommonRecipes.exl")
-    #cookDict = parseCookbookDictionary(cookDict, "./ESHA+Recipes+(EXL+Files)/ArmedForcesRecipes.exl")
+    cookDict = parseCookbookDictionary(cookDict, "./ESHA+Recipes+(EXL+Files)/ArmedForcesRecipes.exl")
+    cookDict = parseCookbookDictionary(cookDict, "./ESHA+Recipes+(EXL+Files)/EthnicRecipes.exl")
+    cookDict = parseCookbookDictionary(cookDict, "./ESHA+Recipes+(EXL+Files)/VegetarianRecipes.exl")
     
     cookDict, duplicates = crf.removeDuplicates(cookDict)
+    cookDict = crf.splitInstructions(cookDict)
+
+    nRecipes = 0
+    for i in cookDict["Cookbook"]:
+        nRecipes += 1
+        #if "Yield" in i["Recipe"]:
+            #print(i["Recipe"]["Yield"])
     
-    print(json.dumps(cookDict))
+    #print(json.dumps(cookDict))
     print(duplicates, "duplicates")
+    print(nRecipes, "recipes")
     with open(outFilenameJSON, "w") as file_object:
         json.dump(cookDict, file_object)
     quit()

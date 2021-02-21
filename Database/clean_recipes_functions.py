@@ -46,10 +46,36 @@ def removeDuplicatesList(cookbook):
 
     return cookbook, duplicates
 
+
+
 def splitInstructions(cookbook):
-    for i, recipe in enumerate(cookbook):
-        instructions = recipe.pop(2)
-        print(instructions)
+    if type(cookbook) is list:
+        return splitInstructionsList(cookbook)
+    elif type(cookbook) is dict:
+        return splitInstructionsDict(cookbook)
+
+def splitInstructionsDict(cookbook):
+    for recipe in cookbook["Cookbook"]:
+        instructions = recipe["Recipe"].pop("Instructions").split("\n")
+        method = None
+        for i, inst in enumerate(instructions):
+            if inst[:4] == "METH":
+                method = i
+                recipe["Recipe"]["Method"] = []
+            elif inst[:4] == "YIEL":
+                #recipe["Recipe"]["Yield"] = inst.split(" ")[-2]
+                recipe["Recipe"]["Yield"] = inst[7:].strip()
+            if (method != None) and (method < i) and (inst != ""):
+                recipe["Recipe"]["Method"].append(inst)
 
 
+
+    return cookbook
+
+def splitInstructionsList(cookbook):
+    #for i, recipe in enumerate(cookbook):
+    #    instructions = recipe.pop(2)
+    #    print(instructions)
+
+    print("NOT IMPLEMENTED")
     return cookbook
