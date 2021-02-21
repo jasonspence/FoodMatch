@@ -1,4 +1,5 @@
-var jsonPath = "../Database/Cookbook.json"
+//const jsonPath = "../Database/Cookbook.json"
+const jsonPath = "https://jasonspence.github.io/WeGotThis/Database/Cookbook.json"
 
 console.log("THIS IS WORKING")
 
@@ -29,12 +30,18 @@ const request = async (jsonPath) => {
     const response = await fetch(jsonPath);
     const data = await response.json();
     console.log(data);
+    return data
+}
 
+const main = async (jsonPath) => {
+    data = await request(jsonPath)
+    
+    //let promises = data.Cookbook.map( item => console.log(item.Recipe.Name) );
     for(const recipe in data.Cookbook) {
-        console.log(recipe.Recipe.Name)
+        console.log(data.Cookbook[recipe].Recipe.Name);
     }
 }
 
-request(jsonPath)
 
+main(jsonPath)
 
