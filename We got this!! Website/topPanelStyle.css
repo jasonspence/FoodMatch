@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+.topPanel{
+    width: 100%;
+    background-color: #F87666;
+    display: block;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.topPanel p{
+    color: black;
+    font-weight: bolder;
+    font-size: 8vw;
+    margin-left: 5vw;
+    margin-top: 7vw;
+    margin-bottom: 4vw;
+}

@@ -1,40 +1,171 @@
 @charset "utf-8";
 /* CSS Document */
 
-.menu{
-    text-align: left;
-    /*width: 100%;
-    background-color: aqua;*/
+/*filter styling*/
 
+.filter{
+    background-color: #FFD791;
+    width: 20%;
+    margin-left: 2vw;
 }
 
-.menuIcon{
-    width: 12.5%;
+.filter p{
+    text-align: center;
+    font-size: 4vw;
+    padding:2.5% 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-weight: bolder;
 }
 
-/*styles the bottom menu navigation*/
-.BotNav {
+/*tags styling*/
+#Tags{
+    margin: auto;
+    padding: 10px;
+
+    margin: 0;
+    position: absolute;
+    top: 20%;
+    width: 80%;
+    height: 35%;
+    left: 47%;
+    transform: translate(-50%, 0%);
+}
+
+#tag1{
+    float: left;
+    width: 25%;
+    margin-left: 0;
+    left: 0;
+    position: absolute;
+}
+
+#tag1 img{
     width: 100%;
-    background-color: #000000;
+}
+
+#tag1 p{
+    position: absolute;
+    text-align: center;
+    top: 0;
+    font-size: 2.5vh;
+    margin-left: 35%;
+}
+
+#tag2{
+    float: left;
+    width: 25%;
+    margin-left: 25%;
+    left: 0;
+    position: absolute;
+    
+}
+
+#tag2 img{
+    width: 100%;
+}
+
+#tag2 p{
+    position: absolute;
+    text-align: center;
+    top: 1vh;
+    font-size: 2vh;
+    margin-left: 3vw;
+}
+
+#tag3{
+    float: left;
+    width: 25%;
+    margin-left: 50%;
+    left: 0;
+    position: absolute;
+}
+
+#tag3 img{
+    width: 100%;
+}
+
+#tag3 p{
+    position: absolute;
+    text-align: center;
+    font-size: 2.75vh;
+    top: 1vh;
+    margin-left: 25%;
+}
+
+/*showcase styling*/
+
+.showcase{
+    background-color: #FFD791;
+    margin: auto;
+    padding: 10px;
+
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    width: 80%;
+    height: 35%;
+    left: 47%;
+    transform: translate(-50%, 0%);
+}
+
+#recipeName{
+    color: black;
+    font-weight: bolder;
+    font-size: 4vh;
+    margin-left: 3vw;
+    margin-top: 4vh;
+    margin-bottom: 3vh;
+}
+
+.imgFrame{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    height: 65%;
+    width: 100%;
     overflow: hidden;
 }
 
-/*styles the links inside the navigation bar*/
-.BotNav a{
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    border-bottom: 3px solid transparent;
+.showcaseImg{
+    width: 100%;
 }
 
-.BotNav a:hover {
-    border-top: 3px solid white;
+.imgFrame img{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
-  
-.BotNav a.active {
-    border-top: 3px solid white;
+
+.showcaseShadow{
+    background-color: #D9B982;
+    margin: auto;
+    padding: 10px;
+
+    margin: 0;
+    position: absolute;
+    top: 32%;
+    width: 80%;
+    height: 35%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.showcaseShadow2{
+    background-color: #BF9A58;
+    margin: auto;
+    padding: 10px;
+
+    margin: 0;
+    position: absolute;
+    top: 34%;
+    width: 80%;
+    height: 35%;
+    left: 52%;
+    transform: translate(-50%, 0%);
 }

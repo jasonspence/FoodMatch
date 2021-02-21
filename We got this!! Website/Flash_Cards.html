@@ -3,27 +3,56 @@
     <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="Flash_Cards.css">
+        <link rel="stylesheet" href="defaultMenuDesign.css">
         <title>Menu</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <div class="menu">
-            <img class="menuIcon" src="MenuIcon.png">
-        </div>
-        
+        <!--this is the bottom navigation bar-->
         <div class = "BotNav">
-            <a href="Saved_Recipes">Saved Recipes</a>
-            <a href="Flash_Cards.html" class="active">Flash Cards</a>
-            <a href="My_Ingredients.html">My Ingredients</a>
-        </div>
-
-        <div class = "showcase">
-            <img src="pasta_PNG.png">
+            <div class = "selection">
+                <a href="Saved_Recipes.html">Saved <br> Recipes</a>
+            </div>
+            <div class = "spacer"> </div>
+            <div class = "selection">
+                <a href="Flash_Cards.html" class="active">Flash <br> Cards</a>
+            </div>
+            <div class = "spacer"> </div>
+            <div class = "selection">
+                <a href="My_Ingredients.html">My <br> Ingredients</a>
+            </div>
         </div>
         
-    </body>
+        <div class = "filter">
+            <p>Filter</p>
+        </div>
+            
+        <!--recipe "stats" tabs-->
+        <div id = "Tags">
+            <div id = "tag1">
+                <img src="Red Tag.png">
+                <p>30<br>min</p>
+            </div>
+            <div id = "tag2">
+                <img src="Blue Tag.png">
+                <p>1 missing <br> ingredients</p>
+            </div>
+            <div id = "tag3">
+                <img src="Green Tag.png">
+                <p>Main</p>
+            </div>
+        </div>
 
-    <footer>
-        test
-    </footer>
+        <!--showcase main card-->
+        <div class = "showcaseShadow2"></div>
+
+        <div class = "showcaseShadow"></div>
+            
+        <div class = "showcase">
+            <p id = "recipeName">Recipe Name</p>
+            <div class = "imgFrame">
+                <img class = "showcaseImg" src="spaghetti.jpg">
+            </div>
+        </div>
+    </body>
 </html>
