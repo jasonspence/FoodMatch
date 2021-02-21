@@ -18,3 +18,11 @@ def removeDuplicates(cookbook):
                 cookbook.remove(recipe2)
 
     return cookbook, duplicates
+
+def splitInstructions(cookbook):
+    for i, recipe in enumerate(cookbook):
+        instructions = recipe.pop(2)
+        print(instructions)
+
+
+    return cookbook

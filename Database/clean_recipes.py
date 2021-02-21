@@ -20,6 +20,11 @@ def parseCookbook(cookBook, filename):
             #print("    ", ingredientName)
             newIngredients.append(ingredientName)
         newRecipe.append(newIngredients)
+
+        instructions = r.find("XML_MEMO1").text
+        #print(instructions)
+        newRecipe.append(instructions)
+
         cookBook.append(newRecipe)
 
     return cookBook
@@ -58,9 +63,10 @@ def printCookbook(book):
         for i in r[1]:
             ingredientName = i
             print("    ", ingredientName)
+        print(r[2])
 
 if __name__ == "__main__":
-    outFilename = "./Cookbook.xml"
+    outFilenameXML = "./Cookbook.xml"
 
     # Import and parse cookbooks
     cookBook = []
@@ -68,12 +74,13 @@ if __name__ == "__main__":
     #cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/EthnicRecipes.exl")
     #cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/VegetarianRecipes.exl")
     #cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/ArmedForcesRecipes.exl")
-    printCookbook(cookBook)
-    print("DONE THE LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST")
+    #printCookbook(cookBook)
+    #print("DONE THE LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST")
 
     # Edit the entries
     cookBook, duplicates = crf.removeDuplicates(cookBook)
-    printCookbook(cookBook)
+    cookBook = crf.splitInstructions(cookBook)
+    #printCookbook(cookBook)
     print(duplicates, "duplicates")
 
     # Convert back to XML
@@ -82,4 +89,4 @@ if __name__ == "__main__":
     cookBookTree = xml.ElementTree(cookBookRootPlusChildren)
 
     #printXMLCookbook(cookBookTree)
-    cookBookTree.write(outFilename)
+    cookBookTree.write(outFilenameXML)
