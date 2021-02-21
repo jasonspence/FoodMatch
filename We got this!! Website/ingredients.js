@@ -26,14 +26,9 @@ readJSON(jsonPath)
 */
 
 
-const data = fetch(jsonPath)
-.then(response => {
-   return response.json();
-})
-.then(console.log("Hey did this work??"))
-.then(data => console.log(data));
-
-console.log(data)
+const response = await fetch(jsonPath);
+const data = await response.json();
+console.log(data);
 
 for(const recipe in data.Cookbook) {
     console.log(recipe.Name)
