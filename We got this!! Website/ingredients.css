@@ -1,0 +1,14 @@
+#ingredients_choice {
+    display: inline;
+}
+
+#ingredients_container, #ingredients_chosen {
+    text-align: center;
+    float: left;
+    display: inline;
+    width: 45%;
+}
+
+.ingredient {
+    font-size: 25pt;
+}
