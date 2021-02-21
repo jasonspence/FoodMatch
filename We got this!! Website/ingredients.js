@@ -33,4 +33,6 @@ fetch(jsonPath)
 .then(console.log("Hey did this work??"))
 .then(data => console.log(data));
 
-
+for(const recipe in data.Cookbook) {
+    console.log(recipe.Name)
+}
