@@ -31,7 +31,7 @@ const request = async (jsonPath) => {
     console.log(data);
 
     for(const recipe in data.Cookbook) {
-        console.log(recipe.Name)
+        console.log(recipe.Recipe.Name)
     }
 }
 
