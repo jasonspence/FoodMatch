@@ -1,31 +1,6 @@
 //const jsonPath = "../Database/Cookbook.json"
 const jsonPath = "https://jasonspence.github.io/WeGotThis/Database/Cookbook.json"
 
-console.log("THIS IS WORKING")
-
-//var mydata = JSON.parse(data)
-
-/*
-function readJSON(path) { 
-    var xhr = new XMLHttpRequest(); 
-    xhr.open('GET', path, true); 
-    xhr.responseType = 'blob'; 
-    xhr.onload = function(e) {  
-      if (this.status == 200) { 
-          var file = new File([this.response], 'temp'); 
-          var fileReader = new FileReader(); 
-          fileReader.addEventListener('load', function(){ 
-               //do stuff with fileReader.result 
-               console.log("Hello")
-          }); 
-          fileReader.readAsText(file); 
-      }  
-    } 
-    xhr.send(); 
-} 
-readJSON(jsonPath)
-*/
-
 const request = async (jsonPath) => {
     const response = await fetch(jsonPath);
     const data = await response.json();
@@ -36,10 +11,17 @@ const request = async (jsonPath) => {
 const main = async (jsonPath) => {
     data = await request(jsonPath)
     
+    let ingredients = new Set()
+
     //let promises = data.Cookbook.map( item => console.log(item.Recipe.Name) );
-    for(const recipe in data.Cookbook) {
-        console.log(data.Cookbook[recipe].Recipe.Name);
+    for(let recipe of data.Cookbook) {
+        //console.log(recipe.Recipe.Name);
+        for(let ing of recipe.Recipe.Ingredients) {
+            ingredients.add(ing.Ingredient)
+        }
     }
+
+    console.log(ingredients)
 }
 
 
