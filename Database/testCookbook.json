@@ -1,0 +1,32 @@
+{
+    "Cookbook": [
+    {
+        "Recipe": {
+            "Name": "Chocolate Cookie",
+            "Ingredients": [
+                {"Ingredient": "Flour"},
+                {"Ingredient": "Butter"},
+                {"Ingredient": "Chocolate Chips"}
+            ],
+            "Method": [
+                {"Step": "Combine the bread crumbs, sugar, cinnamon, and nutmeg. Cut in the butter. Slowly add the water and mix."},
+                {"Step": "Bake in a 350 degree F oven for 30 minutes."}
+            ],
+            "Yield": 12
+        }
+    },
+    {
+        "Recipe": {
+            "Name": "Soup",
+            "Ingredients": [
+                {"Ingredient": "Broth"},
+                {"Ingredient": "Noodles"}
+            ],
+            "Method": [
+                {"Step": "Boil the ingredients for a bit."}
+            ],
+            "Yield": 6
+        }
+    }
+    ]
+}

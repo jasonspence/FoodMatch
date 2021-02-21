@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as xml
+import clean_recipes_functions as crf
 
 # XML to List of Recipes and 
 def parseCookbook(cookBook, filename):
@@ -11,12 +12,19 @@ def parseCookbook(cookBook, filename):
         #print(recipeName)
         newRecipe = []
         newRecipe.append(recipeName)
-        
+
+        newIngredients = []
         ingredients = r.findall("RecipeItem")
         for i in ingredients:
             ingredientName = i.get("ItemName").split(",")[0]
             #print("    ", ingredientName)
-            newRecipe.append(ingredientName)
+            newIngredients.append(ingredientName)
+        newRecipe.append(newIngredients)
+
+        instructions = r.find("XML_MEMO1").text
+        #print(instructions)
+        newRecipe.append(instructions)
+
         cookBook.append(newRecipe)
 
     return cookBook
@@ -55,20 +63,30 @@ def printCookbook(book):
         for i in r[1]:
             ingredientName = i
             print("    ", ingredientName)
+        print(r[2])
 
 if __name__ == "__main__":
-    outFilename = "./Cookbook.xml"
+    outFilenameXML = "./Cookbook.xml"
 
+    # Import and parse cookbooks
     cookBook = []
     cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/CommonRecipes.exl")
-    printCookbook(cookBook)
-    print("DONE THE LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST")
+    #cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/EthnicRecipes.exl")
+    #cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/VegetarianRecipes.exl")
+    #cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/ArmedForcesRecipes.exl")
+    #printCookbook(cookBook)
+    #print("DONE THE LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST")
 
+    # Edit the entries
+    cookBook, duplicates = crf.removeDuplicates(cookBook)
+    cookBook = crf.splitInstructions(cookBook)
+    #printCookbook(cookBook)
+    print(duplicates, "duplicates")
+
+    # Convert back to XML
     cookBookRoot = xml.Element("Cookbook")
     cookBookRootPlusChildren = makeXML(cookBookRoot, cookBook)
     cookBookTree = xml.ElementTree(cookBookRootPlusChildren)
 
-    printXMLCookbook(cookBookTree)
-    cookBookTree.write(outFilename)
-
-    print(cookBook)
+    #printXMLCookbook(cookBookTree)
+    cookBookTree.write(outFilenameXML)
