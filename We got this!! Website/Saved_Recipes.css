@@ -1,8 +1,13 @@
 @charset "utf-8";
 /* CSS Document */
 
-/*filter styling*/
+@font-face{
+    font-family: TraneFont;
+    src: url(Raleway-Font.ttf);
+    font-weight: 800;
+}
 
+/*filter styling*/
 
 .filter{
     background-color: #FFD791;
@@ -17,7 +22,7 @@
     padding:1vh;
     padding-left: 5vh;
     padding-right: 5vh;
-    font-weight: bolder;
+    font-family: TraneFont;
 }
 
 .recipeList{
@@ -52,19 +57,20 @@
     margin-bottom: 5%;
     padding-bottom: 2vh;
     padding-left: 2.5%;
-    font-weight: bolder;
     font-size: 7vw;
     float: left;
+    font-family: TraneFont;
 }
 
 .savedRecipe .TimeRequired{
     margin-bottom: 0;
-    padding-top: 5vh;
+    padding-top: 11vh;
     padding-left: 2.5%;
     margin-right: 0;
-    max-width: 15vw;
+    max-width: 20vw;
     color: #8b2020;
-    font-size: 5vw;
+    font-size: 4vw;
+    font-family: TraneFont;
 }
 
 .savedRecipe .MissingIngredients{
@@ -72,14 +78,15 @@
     padding-left: 2.5%;
     color: #054644;
     padding-bottom: 2%;
-    font-size: 5vw;
+    font-size: 4vw;
+    font-family: TraneFont;
 }
 
 .savedRecipe .like{
     width: 6.5%;
     margin-top: 2.5%;
     right: 0;
-    padding-left: 2vw;
+    padding-left: 1vw;
     float: left;
 }
 

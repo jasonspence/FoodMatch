@@ -1,6 +1,12 @@
 @charset "utf-8";
 /* CSS Document */
 
+@font-face{
+    font-family: TraneFont;
+    src: url(Raleway-Font.ttf);
+    font-weight: 800;
+}
+
 body{
     background-color: #FBF3FF;
 }
@@ -27,6 +33,7 @@ body{
 .BotNav .spacer{
     margin: 4vw 3vw;
     width: .25%;
+    height: 6vh;
     background-color: white;
 }
 
@@ -39,7 +46,8 @@ body{
     padding: 2vw 0vw;
     text-decoration: none;
     font-weight: bold;
-    font-size: 5vw;
+    font-size: 4vw;
+    font-family: TraneFont;
 }
 
 .BotNav a:hover {
