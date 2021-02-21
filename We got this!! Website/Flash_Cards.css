@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+
+.menu{
+    text-align: left;
+    /*width: 100%;
+    background-color: aqua;*/
+
+}
+
+.menuIcon{
+    width: 12.5%;
+}
+
+/*styles the bottom menu navigation*/
+.BotNav {
+    width: 100%;
+    background-color: #000000;
+    overflow: hidden;
+}
+
+/*styles the links inside the navigation bar*/
+.BotNav a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-bottom: 3px solid transparent;
+}
+
+.BotNav a:hover {
+    border-top: 3px solid white;
+}
+  
+.BotNav a.active {
+    border-top: 3px solid white;
+}
