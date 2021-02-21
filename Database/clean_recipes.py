@@ -65,16 +65,21 @@ if __name__ == "__main__":
     # Import and parse cookbooks
     cookBook = []
     cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/CommonRecipes.exl")
-    #printCookbook(cookBook)
-    #print("DONE THE LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST")
+    #cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/EthnicRecipes.exl")
+    #cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/VegetarianRecipes.exl")
+    #cookBook = parseCookbook(cookBook, "./ESHA+Recipes+(EXL+Files)/ArmedForcesRecipes.exl")
+    printCookbook(cookBook)
+    print("DONE THE LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST LIST")
 
     # Edit the entries
-
+    cookBook, duplicates = crf.removeDuplicates(cookBook)
+    printCookbook(cookBook)
+    print(duplicates, "duplicates")
 
     # Convert back to XML
     cookBookRoot = xml.Element("Cookbook")
     cookBookRootPlusChildren = makeXML(cookBookRoot, cookBook)
     cookBookTree = xml.ElementTree(cookBookRootPlusChildren)
 
-    printXMLCookbook(cookBookTree)
+    #printXMLCookbook(cookBookTree)
     cookBookTree.write(outFilename)
