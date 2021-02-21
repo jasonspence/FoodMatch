@@ -26,8 +26,11 @@ readJSON(jsonPath)
 */
 
 
-fetch("../Database/Cookbook.json")
+fetch(jsonPath)
 .then(response => {
    return response.json();
 })
+.then(console.log("Hey did this work??"))
 .then(data => console.log(data));
+
+
