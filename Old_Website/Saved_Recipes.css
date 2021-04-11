@@ -1,0 +1,111 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face{
+    font-family: TraneFont;
+    src: url(Raleway-Font.ttf);
+    font-weight: 800;
+}
+
+/*filter styling*/
+
+.filter{
+    background-color: #FFD791;
+    width: 15vh;
+    margin-top: 25vh;
+    margin-left: 2.5vh;
+}
+
+.filter p{
+    text-align: center;
+    font-size: 2vh;
+    padding:1vh;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    font-family: TraneFont;
+}
+
+.recipeList{
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.savedRecipe{
+    margin-top: 5vh;
+    background-color: #FFD791;
+    width: 100%;
+}
+
+.savedRecipe::after{
+    content: "";
+    clear: both;
+    display: table;
+    margin-bottom: unset;
+}
+
+.savedRecipe .mainContent{
+    float: left;
+}
+
+.savedRecipe .otherInfo{
+    margin-top: 0;
+}
+
+.savedRecipe .RecipeName{
+    margin-top: 2.5%;
+    margin-bottom: 5%;
+    padding-bottom: 2vh;
+    padding-left: 2.5%;
+    font-size: 7vw;
+    float: left;
+    font-family: TraneFont;
+}
+
+.savedRecipe .TimeRequired{
+    margin-bottom: 0;
+    padding-top: 11vh;
+    padding-left: 2.5%;
+    margin-right: 0;
+    max-width: 20vw;
+    color: #8b2020;
+    font-size: 4vw;
+    font-family: TraneFont;
+}
+
+.savedRecipe .MissingIngredients{
+    margin: 0;
+    padding-left: 2.5%;
+    color: #054644;
+    padding-bottom: 2%;
+    font-size: 4vw;
+    font-family: TraneFont;
+}
+
+.savedRecipe .like{
+    width: 6.5%;
+    margin-top: 2.5%;
+    right: 0;
+    padding-left: 1vw;
+    float: left;
+}
+
+/*SIZE ADJUSTMENT FOR THE FRAME*/
+.savedRecipe .RecipePicFrame{
+    height:27.5vh;
+    width: 40%;
+    overflow: hidden;
+    float: right;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.savedRecipe .RecipePicFrame img{
+    position: relative;
+    top: 0;
+    right: 0;
+    float: right;
+    height: 100%;
+    width: 50vw;
+}
