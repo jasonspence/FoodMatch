@@ -1,5 +1,5 @@
 //const jsonPath = "../Database/Cookbook.json"
-const jsonPath = "https://jasonspence.github.io/WeGotThis/Database/Cookbook.json";
+const jsonPath = "https://jasonspence.github.io/FoodMatch/Database/Cookbook.json";
 
 const request = async (jsonPath) => {
     const response = await fetch(jsonPath);
